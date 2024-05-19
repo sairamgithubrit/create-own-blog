@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.blog-post {
+    margin-bottom: 2rem;
+}
+
+.blog-post h2 {
+    margin-top: 0;
+}
+
+.blog-post p {
+    line-height: 1.6;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Simple Blog</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="blog-posts">
+            <!-- Blog posts will be injected here by JavaScript -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Simple Blog. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const blogPosts = [
+        {
+            title: "First Blog Post",
+            content: "This is the content of the first blog post. It is a great post with a lot of interesting information."
+        },
+        {
+            title: "Second Blog Post",
+            content: "Here is some more content for the second blog post. It is just as interesting as the first one."
+        },
+        {
+            title: "Third Blog Post",
+            content: "This is the third blog post. It continues the trend of being informative and engaging."
+        }
+    ];
+
+    const blogPostsSection = document.getElementById("blog-posts");
+
+    blogPosts.forEach(post => {
+        const postElement = document.createElement("div");
+        postElement.classList.add("blog-post");
+
+        const postTitle = document.createElement("h2");
+        postTitle.textContent = post.title;
+
+        const postContent = document.createElement("p");
+        postContent.textContent = post.content;
+
+        postElement.appendChild(postTitle);
+        postElement.appendChild(postContent);
+        blogPostsSection.appendChild(postElement);
+    });
+});
+
+    </script>
+</body>
+</html>
